@@ -1,0 +1,62 @@
+body {
+  background-image: url(../image/fondo.png);
+}
+
+.navbar{
+    background-color: #ffe782;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.btnCategoria {
+  margin: 0 10px;
+  background-color: #ffe782;
+  color: black;
+  width: 130px;
+  border: none;
+  border-radius: 20px;
+}
+
+.btnCategoria:hover {
+  background-color: #ffdd53;
+  color: black;
+}
+
+.divCard {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  margin: 10px 10px;
+}
+
+.imgCard {
+  width: 360px;
+}
+
+.btn {
+  background-color: #ffe782;
+  color: black;
+  font-weight: 600;
+  width: 180px;
+  border: none;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  background-color: #ffdd53;
+  color: black;
+}
