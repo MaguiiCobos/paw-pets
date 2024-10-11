@@ -4,14 +4,13 @@ import {
   addDoc,
   collection,
   getDocs,
-  query
+  query,
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 import { firebaseConfig } from "./firebaseConfig.js";
 
 // Inicializa Firebase y Firestore
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 
 // Obtener documentos de la colección "animales"
 const getAnimals = async () => {
@@ -41,4 +40,3 @@ const getAnimals = async () => {
 };
 
 getAnimals();
-

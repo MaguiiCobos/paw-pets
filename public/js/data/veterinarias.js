@@ -1,4 +1,5 @@
 export const veterinarias = [
+
   {
     nombre: "Clínica Veterinaria San Roque",
     ubicacion: "Av. Colón 1234, Mendoza",
