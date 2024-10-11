@@ -1,0 +1,54 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Boogaloo&display=swap"); */
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+  background-image: url(../image/fondo.png);
+  /* font-family: "Boogaloo"; */
+}
+
+.navbar {
+  background-color: #ffe782;
+}
+
+.divConsejos {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tituloAcordeon {
+  width: 600px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: larger;
+  background-color: white;
+}
+
+/* .collapse{
+  
+}
+
+.card{
+  width: 600px;
+} */
+
+
+.textAcordeon {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.expandIcon {
+  color: #242424;
+}
+
+.imgConsejos {
+  width: 250px;
+  margin-left: -180px;
+  border-radius: 40px 0 40px 0;
+  border: 3px solid #dd595d;
+}

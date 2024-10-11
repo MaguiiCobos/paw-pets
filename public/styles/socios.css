@@ -1,0 +1,42 @@
+body {
+  background-image: url(../image/fondo.png);
+}
+
+.navbar {
+  background-color: #ffe782;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.btnCategoria, .btnRefugios {
+  margin: 0 10px;
+  background-color: #ffe782;
+  color: black;
+  width: auto;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+.btnCategoria:hover, .btnRefugios:hover {
+  background-color: #ffdd53;
+  color: black;
+}
+
+.mapa{
+    border: 5px solid #ffdd53;
+    border-radius: 10px;
+}
+
+iframe{
+    border-radius: 10px;
+}
