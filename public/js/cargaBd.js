@@ -117,5 +117,3 @@ window.addEventListener("DOMContentLoaded", () => {
   // Ejemplo de uso de getVeterinarias
   getVeterinarias();
 });
-
-

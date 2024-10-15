@@ -13,7 +13,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-// Obtener documentos de la colección "animales"
+// Obtener documentos de la colección "refugios y veterinarias"
 const getSocios = async () => {
   const q1 = query(collection(db, "refugios"));
   const q2 = query(collection(db, "veterinarias"));
