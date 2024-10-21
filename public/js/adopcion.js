@@ -6,7 +6,7 @@ import {
   getDocs,
   query,
   doc,
-  updateDoc
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 import { firebaseConfig } from "./firebaseConfig.js";
 
@@ -15,32 +15,95 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Obtener documentos de la colección "animales"
-const getAnimals = async () => {
+// const getAnimals = async () => {
+//   const q = query(collection(db, "animales"));
+//   const querySnapshot = await getDocs(q);
+//   querySnapshot.forEach((doc) => {
+//     document.getElementById("output").innerHTML += `
+//       <div class="card">
+//         <div class="card-header">${
+//           doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
+//         }</div>
+//         <div class="card-body">
+//           <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
+//           <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
+//           <p class="card-text">
+//             ${doc.data().descripcion}
+//           </p>
+//           <a href="#" class="btn btn-primary">
+//             Ver info
+//           </a>
+//           <a href="#" class="btn btn-primary">
+//             Adoptar
+//           </a>
+//         </div>
+//       </div>
+//     `;
+//   });
+// };
+
+const filtroAnimales = async (departamento) => {
+  const contenedor = document.getElementById("output")
   const q = query(collection(db, "animales"));
   const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    document.getElementById("output").innerHTML += `
-      <div class="card">
-        <div class="card-header">${doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"}</div>
-        <div class="card-body">
-          <img class="imgCard img-fluid" src="./image/fondoHeader.jpeg" alt="" />
-          <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
-          <p class="card-text">
-            ${doc.data().descripcion}
-          </p>
-          <a href="#" class="btn btn-primary">
-            Ver info
-          </a>
-          <a href="#" class="btn btn-primary">
-            Adoptar
-          </a>
-        </div>
-      </div>
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data().refugio.departamento == departamento);
+      if (doc.data().refugio.departamento == departamento || departamento == "todos") {
+        contenedor.innerHTML += `
+          <div class="card">
+            <div class="card-header">${
+              doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
+            }</div>
+            <div class="card-body">
+              <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
+              <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
+              <p class="card-text">
+                ${doc.data().descripcion}
+              </p>
+              <a href="#" class="btn btn-primary">
+                Ver info
+              </a>
+              <a href="#" class="btn btn-primary">
+                Adoptar
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    });
+  if (contenedor.innerHTML == "") {
+    contenedor.innerHTML = `
+    <div> 
+      <h1> No hay animales </h1> 
+    </div>
     `;
-  });
+  }
 };
 
-getAnimals();
+filtroAnimales("todos");
+
+// filtro
+const btnCategoria = document.querySelectorAll(".btnCategoria");
+
+btnCategoria.forEach((boton) => {
+  boton.addEventListener("click", async (e) => {
+    let contenedor = document.querySelector("#output");
+    contenedor.innerHTML = "";
+    if (e.currentTarget.id != "todos") {
+      await filtroAnimales(e.currentTarget.id);
+    } else if (e.currentTarget.id == "todos") {
+      await filtroAnimales("todos");
+    }
+
+    // if (contenedor.innerHTML == "") {
+    //   contenedor.innerHTML = `
+    //   <div> 
+    //     <h1> No hay animales </h1> 
+    //   </div>
+    //   `;
+    // }
+  });
+});
 
 // Función para obtener la lista de refugios
 const getRefugios = async () => {
@@ -73,25 +136,29 @@ const actualizarAnimalConRefugio = async (idAnimal, nombreRefugio) => {
   if (refugio) {
     // Referencia al documento del animal
     const animalRef = doc(db, "animales", idAnimal);
-    
+
     // Actualiza el campo "refugio" del animal con la información completa del refugio
     await updateDoc(animalRef, {
-      refugio: refugio
+      refugio: refugio,
     });
 
-    console.log(`Animal con ID ${idAnimal} actualizado con el refugio ${nombreRefugio}`);
+    // console.log(
+    //   `Animal con ID ${idAnimal} actualizado con el refugio ${nombreRefugio}`
+    // );
   } else {
     console.log("Refugio no encontrado.");
   }
 };
 
 // Llamar a la función para asignar un refugio a un animal
-actualizarAnimalConRefugio("LKU1VfZKdOrQudjzUnhj", "Refugio Vida y Patas");
-actualizarAnimalConRefugio("OJCZBnjY1GmHERmAuZZc", "Refugio Animal Feliz");
-actualizarAnimalConRefugio("SQ5dQiz8zzBdWw4Aq5QD", "Hogar Canino Los Andes");
-actualizarAnimalConRefugio("Y5bysBoWJX2oujtWD00O", "Refugio Esperanza Animal");
-actualizarAnimalConRefugio("ZURnVwSggSVNAfkmOIGM", "Centro de Rescate Paws");
-actualizarAnimalConRefugio("kyjTmXEhUZ1371Ns1RIu", "Salvemos a los Peludos");
-actualizarAnimalConRefugio("n5DVkxZwnHl5HIUExbm3", "Refugio Amigos de Cuatro Patas");
-actualizarAnimalConRefugio("o6wbUVK0uW7JU4h6EnBw", "Santuario Animal Mendoza");
-
+// actualizarAnimalConRefugio("62huk8FkntYZeu35pOwd", "Refugio Vida y Patas");
+// actualizarAnimalConRefugio("6m4TNwyhlE1YZIufPhZV", "Refugio Animal Feliz");
+// actualizarAnimalConRefugio("7ohTGIzkJhUcVAUqJAkn", "Hogar Canino Los Andes");
+// actualizarAnimalConRefugio("MYInudbVBfjJ0udVpP3C", "Refugio Esperanza Animal");
+// actualizarAnimalConRefugio("OfWldRS0JH4WdL5TdLbS", "Centro de Rescate Paws");
+// actualizarAnimalConRefugio("QccndE4uRVhcLYqgZcIh", "Salvemos a los Peludos");
+// actualizarAnimalConRefugio(
+//   "geTScF51MdeDEh2aR8Wv",
+//   "Refugio Amigos de Cuatro Patas"
+// );
+// actualizarAnimalConRefugio("yfdiii0vr3miuU51jcJP", "Santuario Animal Mendoza");

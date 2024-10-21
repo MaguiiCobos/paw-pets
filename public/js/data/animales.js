@@ -186,7 +186,7 @@ const asignarRefugio = async (nombreRefugio) => {
 
 asignarRefugio("Refugio Vida y Patas")
   .then((refugio) => {
-    console.log(refugio); // Aquí puedes ver el objeto refugio
+    // console.log(refugio); // Aquí puedes ver el objeto refugio
   })
   .catch((error) => {
     console.error("Error:", error);
