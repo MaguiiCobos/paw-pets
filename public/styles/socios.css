@@ -17,7 +17,9 @@ ul {
   display: flex;
 }
 
-.btnCategoria, .btnRefugios {
+.btnCategoria,
+.btnRefugios,
+.btnMapa {
   margin: 0 10px;
   background-color: #ffe782;
   color: black;
@@ -27,16 +29,23 @@ ul {
   border-radius: 20px;
 }
 
-.btnCategoria:hover, .btnRefugios:hover {
+.btnCategoria:hover,
+.btnRefugios:hover,
+.btnMapa:hover {
   background-color: #ffdd53;
   color: black;
 }
 
-.mapa{
-    border: 5px solid #ffdd53;
-    border-radius: 10px;
+/* .divCard{
+  margin-left: 350px;
+} */
+
+.mapa {
+  border: 5px solid #ffdd53;
+  border-radius: 10px;
+  position: fixed;
 }
 
-iframe{
-    border-radius: 10px;
+iframe {
+  border-radius: 10px;
 }

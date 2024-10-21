@@ -97,10 +97,10 @@ export const refugios = [
   },
   {
     nombre: "Casa Refugio Patitas",
-    ubicacion: "Av. San Martín 567, Lavalle",
+    ubicacion: "Calle Lavalle 567, San Martín",
     ubicacionLink:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.3949060114305!2d-68.8375052268313!3d-32.86126940927778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e08ea5073854d%3A0xcd83f99ec4818df8!2sAv.%20San%20Mart%C3%ADn%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1728658662720!5m2!1ses-419!2sar",
-    departamento: "lavalle",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.314007859615!2d-68.48073902676343!3d-33.07452261986098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e430007f6f12b%3A0x631562f34963ab62!2sC.%20Lavalle%20567%2C%20M5570%20San%20Mart%C3%ADn%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1729549672175!5m2!1ses-419!2sar",
+    departamento: "sanMartin",
     contacto: {
       red_social: "https://www.facebook.com/casarefugiopatitas",
       telefono: "+54 261 890 1234",
