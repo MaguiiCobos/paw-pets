@@ -14,13 +14,13 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/formulario.css">
     <title>Formulario - Paw Pets</title>
 </head>
 <body>
     <header>
         <div>
-            <nav class="navbar navbar-expand-lg bg-light">
+            <nav class="navbar navbar-expand-lg">
               <div class="container-fluid">
                 <a class="navbar-brand" href="#"
                   ><img src="./image/logo.png" alt="" /> PAW PETS
@@ -68,6 +68,47 @@
             </nav>
           </div>
     </header>
+
+    <main>
+      <h3 class="m-3 d-flex justify-content-center">Formulario</h3>
+      <div class="d-flex justify-content-center">
+        <div class="col-4">
+          <form class="formularioAdoptar">
+            <div class="mb-3 m-3">
+              <label class="form-label">Nombre y apellido</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="mb-3 m-3">
+              <label class="form-label">Edad</label>
+              <input type="number" class="form-control">
+            </div>
+            <div class="mb-3 m-3">
+              <label class="form-label">Dni</label>
+              <input type="number" class="form-control">
+            </div>
+            <div class="mb-3 m-3">
+              <label class="form-label">Número de teléfono</label>
+              <input type="tel" class="form-control">
+            </div>
+            <div class="mb-3 m-3">
+              <label class="form-label">Mail</label>
+              <input type="email" class="form-control">
+            </div>
+            <div class="divBtnForm">
+              <button type="submit" class="btn btnForm">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="divFooter">
+        <div>
+          <h5> <i class="bi bi-c-circle"></i> Miguel Alvarez - Sebastián Cejas - Florencia Cobos - Magalí Cobos</h5>
+        </div>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -2,8 +2,8 @@ body {
   background-image: url(../image/fondo.png);
 }
 
-.navbar{
-    background-color: #ffe782;
+.navbar {
+  background-color: #ffe782;
 }
 
 .filtros {
@@ -31,6 +31,12 @@ ul {
   color: black;
 }
 
+/* Loader */
+.spinner-border {
+  margin: 200px 0px 200px 750px;
+}
+
+/* Card */
 .divCard {
   margin-top: 10px;
   display: flex;
@@ -41,6 +47,13 @@ ul {
 .card {
   width: 400px;
   margin: 10px 10px;
+}
+
+.cardNombreAnimal{
+  color: black;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 0;
 }
 
 .imgCard {
@@ -60,4 +73,36 @@ ul {
 .btn:hover {
   background-color: #ffdd53;
   color: black;
+}
+
+.btnMas {
+  font-size: 40px;
+  color: #dd595d;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.btnMas:hover {
+  color: #ce4a4e;
+}
+
+/* Footer */
+.divFooter {
+  background-color: #242424;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+h5 {
+  padding: 10px 30px;
+  font-weight: lighter;
+  font-size: 15px;
+  color: aliceblue;
 }

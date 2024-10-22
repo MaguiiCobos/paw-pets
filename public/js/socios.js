@@ -26,10 +26,10 @@ const filtroSocios = async (departamento) => {
   querySnapshot1.forEach((doc) => {
     if (doc.data().departamento == departamento || departamento == "todos") {
       contenedor.innerHTML += `
-        <div class="card m-3">
+        <div class="card m-3 cardSocios">
           <div class="card-header">Refugio</div>
           <div class="card-body">
-            <h5 class="card-title">${doc.data().nombre}</h5>
+            <h5 class="card-title nombreRef">${doc.data().nombre}</h5>
             <p class="card-text">${doc.data().ubicacion}</p>
             <p class="card-text">${doc.data().contacto.telefono}</p>
             <p class="card-text">${doc.data().contacto.mail}</p>
@@ -49,7 +49,7 @@ const filtroSocios = async (departamento) => {
         <div class="card m-3">
           <div class="card-header">Veterinaria</div>
           <div class="card-body">
-            <h5 class="card-title">${doc.data().nombre}</h5>
+            <h5 class="card-title nombreVet">${doc.data().nombre}</h5>
             <p class="card-text">${doc.data().ubicacion}</p>
             <p class="card-text">${doc.data().contacto.telefono}</p>
             <p class="card-text">${doc.data().contacto.mail}</p>

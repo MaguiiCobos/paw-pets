@@ -42,45 +42,102 @@ const db = getFirestore(app);
 //   });
 // };
 
+
+
 const filtroAnimales = async (departamento) => {
-  const contenedor = document.getElementById("output")
+  const contenedor = document.getElementById("output");
+  const loading = document.getElementById("loading");
+
+  // Muestra el ícono de carga
+  loading.style.display = "flex";
+
   const q = query(collection(db, "animales"));
   const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data().refugio.departamento == departamento);
-      if (doc.data().refugio.departamento == departamento || departamento == "todos") {
-        contenedor.innerHTML += `
-          <div class="card">
-            <div class="card-header">${
-              doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
-            }</div>
-            <div class="card-body">
-              <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
-              <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
-              <p class="card-text">
-                ${doc.data().descripcion}
-              </p>
-              <a href="#" class="btn btn-primary">
-                Ver info
-              </a>
-              <a href="#" class="btn btn-primary">
-                Adoptar
-              </a>
-            </div>
+
+  contenedor.innerHTML = ""; // Asegúrate de limpiar el contenido antes de agregar nuevas tarjetas
+
+  querySnapshot.forEach((doc) => {
+    if (doc.data().refugio.departamento == departamento || departamento == "todos") {
+      contenedor.innerHTML += `
+        <div class="card">
+          <div class="card-header">${
+            doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
+          }</div>
+          <div class="card-body">
+            <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
+            <h5 class="card-title cardNombreAnimal">${doc.data().nombre} - ${doc.data().edad}</h5>
+            <p class="card-text">
+              ${doc.data().descripcion}
+            </p>
+            <a href="#" class="btn btn-primary">
+              Ver info
+            </a>
+            <a href="./formulario.html" class="btn btn-primary">
+              Adoptar
+            </a>
           </div>
-        `;
-      }
-    });
-  if (contenedor.innerHTML == "") {
+        </div>
+      `;
+    }
+  });
+
+  // Si no hay animales, muestra el mensaje de "No hay animales"
+  if (contenedor.innerHTML === "") {
     contenedor.innerHTML = `
-    <div> 
-      <h1> No hay animales </h1> 
-    </div>
+      <div> 
+        <h1> No hay animales </h1> 
+      </div>
     `;
   }
+
+  // Oculta el ícono de carga después de que las tarjetas se han cargado
+  loading.style.display = "none";
 };
 
 filtroAnimales("todos");
+
+
+
+
+// const filtroAnimales = async (departamento) => {
+//   const contenedor = document.getElementById("output")
+//   const q = query(collection(db, "animales"));
+//   const querySnapshot = await getDocs(q);
+//     querySnapshot.forEach((doc) => {
+//       console.log(doc.data().refugio.departamento == departamento);
+//       if (doc.data().refugio.departamento == departamento || departamento == "todos") {
+//         contenedor.innerHTML += `
+//           <div class="card">
+//             <div class="card-header">${
+//               doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
+//             }</div>
+//             <div class="card-body">
+//               <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
+//               <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
+//               <p class="card-text">
+//                 ${doc.data().descripcion}
+//               </p>
+//               <a href="#" class="btn btn-primary">
+//                 Ver info
+//               </a>
+//               <a href="./formulario.html" class="btn btn-primary">
+//                 Adoptar
+//               </a>
+//             </div>
+//           </div>
+//         `;
+//       }
+//     });
+//   if (contenedor.innerHTML == "") {
+//     contenedor.innerHTML = `
+//     <div> 
+//       <h1> No hay animales </h1> 
+//     </div>
+//     `;
+//   }
+// };
+
+// filtroAnimales("todos");
 
 // filtro
 const btnCategoria = document.querySelectorAll(".btnCategoria");
