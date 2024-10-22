@@ -14,35 +14,18 @@ import { firebaseConfig } from "./firebaseConfig.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Obtener documentos de la colección "animales"
-// const getAnimals = async () => {
-//   const q = query(collection(db, "animales"));
-//   const querySnapshot = await getDocs(q);
-//   querySnapshot.forEach((doc) => {
-//     document.getElementById("output").innerHTML += `
-//       <div class="card">
-//         <div class="card-header">${
-//           doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
-//         }</div>
-//         <div class="card-body">
-//           <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
-//           <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
-//           <p class="card-text">
-//             ${doc.data().descripcion}
-//           </p>
-//           <a href="#" class="btn btn-primary">
-//             Ver info
-//           </a>
-//           <a href="#" class="btn btn-primary">
-//             Adoptar
-//           </a>
-//         </div>
-//       </div>
-//     `;
-//   });
-// };
-
-
+//funcion para pasar el animal a infoAnimal
+const guardarAnimal = (nombre, img, descripcion, requerimientos, edad) => {
+  const animal = {
+    nombre: nombre,
+    img: img,
+    descripcion: descripcion,
+    requerimientos: requerimientos,
+    edad: edad,
+  };
+  console.log(animal);
+  localStorage.setItem("animalSeleccionado", JSON.stringify(animal));
+};
 
 const filtroAnimales = async (departamento) => {
   const contenedor = document.getElementById("output");
@@ -57,7 +40,10 @@ const filtroAnimales = async (departamento) => {
   contenedor.innerHTML = ""; // Asegúrate de limpiar el contenido antes de agregar nuevas tarjetas
 
   querySnapshot.forEach((doc) => {
-    if (doc.data().refugio.departamento == departamento || departamento == "todos") {
+    if (
+      doc.data().refugio.departamento == departamento ||
+      departamento == "todos"
+    ) {
       contenedor.innerHTML += `
         <div class="card">
           <div class="card-header">${
@@ -65,11 +51,13 @@ const filtroAnimales = async (departamento) => {
           }</div>
           <div class="card-body">
             <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
-            <h5 class="card-title cardNombreAnimal">${doc.data().nombre} - ${doc.data().edad}</h5>
+            <h5 class="card-title cardNombreAnimal">${doc.data().nombre} - ${
+        doc.data().edad
+      }</h5>
             <p class="card-text">
               ${doc.data().descripcion}
             </p>
-            <a href="#" class="btn btn-primary">
+            <a href="./infoAnimal.html" class="btn btn-primary ver-info" data-nombre="${doc.data().nombre}" data-img="${doc.data().img}" data-descripcion="${doc.data().descripcion}" data-requerimientos="${doc.data().requerimientos}" data-edad="${doc.data().edad}">
               Ver info
             </a>
             <a href="./formulario.html" class="btn btn-primary">
@@ -79,6 +67,19 @@ const filtroAnimales = async (departamento) => {
         </div>
       `;
     }
+
+  });
+
+  document.querySelectorAll(".ver-info").forEach((boton) => {
+    boton.addEventListener("click", (e) => {
+      const nombre = e.currentTarget.dataset.nombre;
+      const img = e.currentTarget.dataset.img;
+      const descripcion = e.currentTarget.dataset.descripcion;
+      const requerimientos = e.currentTarget.dataset.requerimientos;
+      const edad = e.currentTarget.dataset.edad;
+  
+      guardarAnimal(nombre, img, descripcion, requerimientos, edad);
+    });
   });
 
   // Si no hay animales, muestra el mensaje de "No hay animales"
@@ -96,49 +97,6 @@ const filtroAnimales = async (departamento) => {
 
 filtroAnimales("todos");
 
-
-
-
-// const filtroAnimales = async (departamento) => {
-//   const contenedor = document.getElementById("output")
-//   const q = query(collection(db, "animales"));
-//   const querySnapshot = await getDocs(q);
-//     querySnapshot.forEach((doc) => {
-//       console.log(doc.data().refugio.departamento == departamento);
-//       if (doc.data().refugio.departamento == departamento || departamento == "todos") {
-//         contenedor.innerHTML += `
-//           <div class="card">
-//             <div class="card-header">${
-//               doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
-//             }</div>
-//             <div class="card-body">
-//               <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
-//               <h5 class="card-title">${doc.data().nombre} - ${doc.data().edad}</h5>
-//               <p class="card-text">
-//                 ${doc.data().descripcion}
-//               </p>
-//               <a href="#" class="btn btn-primary">
-//                 Ver info
-//               </a>
-//               <a href="./formulario.html" class="btn btn-primary">
-//                 Adoptar
-//               </a>
-//             </div>
-//           </div>
-//         `;
-//       }
-//     });
-//   if (contenedor.innerHTML == "") {
-//     contenedor.innerHTML = `
-//     <div> 
-//       <h1> No hay animales </h1> 
-//     </div>
-//     `;
-//   }
-// };
-
-// filtroAnimales("todos");
-
 // filtro
 const btnCategoria = document.querySelectorAll(".btnCategoria");
 
@@ -151,14 +109,6 @@ btnCategoria.forEach((boton) => {
     } else if (e.currentTarget.id == "todos") {
       await filtroAnimales("todos");
     }
-
-    // if (contenedor.innerHTML == "") {
-    //   contenedor.innerHTML = `
-    //   <div> 
-    //     <h1> No hay animales </h1> 
-    //   </div>
-    //   `;
-    // }
   });
 });
 
@@ -198,10 +148,6 @@ const actualizarAnimalConRefugio = async (idAnimal, nombreRefugio) => {
     await updateDoc(animalRef, {
       refugio: refugio,
     });
-
-    // console.log(
-    //   `Animal con ID ${idAnimal} actualizado con el refugio ${nombreRefugio}`
-    // );
   } else {
     console.log("Refugio no encontrado.");
   }
