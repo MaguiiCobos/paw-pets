@@ -49,20 +49,20 @@ const filtroAnimales = async (departamento) => {
           <div class="card-header">${
             doc.data().refugio ? doc.data().refugio.nombre : "Sin refugio"
           }</div>
-          <div class="card-body">
+          <div>
             <img class="imgCard img-fluid" src="${doc.data().img}" alt="" />
-            <h5 class="card-title cardNombreAnimal">${doc.data().nombre} - ${
-        doc.data().edad
-      }</h5>
-            <p class="card-text">
-              ${doc.data().descripcion}
-            </p>
-            <a href="./infoAnimal.html" class="btn btn-primary ver-info" data-nombre="${doc.data().nombre}" data-img="${doc.data().img}" data-descripcion="${doc.data().descripcion}" data-requerimientos="${doc.data().requerimientos}" data-edad="${doc.data().edad}">
-              Ver info
-            </a>
-            <a href="./formulario.html" class="btn btn-primary">
-              Adoptar
-            </a>
+            <div class="card-body">
+              <h5 class="card-title cardNombreAnimal">${doc.data().nombre} - ${doc.data().edad}</h5>
+              <p class="card-text">
+                ${doc.data().descripcion}
+              </p>
+              <a href="./infoAnimal.html" class="btn btn-primary ver-info" data-nombre="${doc.data().nombre}" data-img="${doc.data().img}" data-descripcion="${doc.data().descripcion}" data-requerimientos="${doc.data().requerimientos}" data-edad="${doc.data().edad}">
+                Ver info
+              </a>
+              <a href="./formulario.html" class="btn btn-primary">
+                Adoptar
+              </a>
+            </div>
           </div>
         </div>
       `;
@@ -86,7 +86,7 @@ const filtroAnimales = async (departamento) => {
   if (contenedor.innerHTML === "") {
     contenedor.innerHTML = `
       <div> 
-        <h1> No hay animales </h1> 
+        <h1 class="my-5 sinAnimales"> Aún no hay animales en esta zona.</h1> 
       </div>
     `;
   }

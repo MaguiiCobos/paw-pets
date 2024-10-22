@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&display=swap");
+
 body {
   background-image: url(../image/fondo.png);
 }
 
 .navbar {
   background-color: #ffe782;
+}
+
+.navbar-brand{
+  font-family: "Boogaloo";
 }
 
 .filtros {
@@ -57,8 +63,21 @@ ul {
   position: fixed;
 }
 
+.divSinSocios{
+  margin-top: 50px;
+  margin-left: 450px;
+}
+
+.sinSocios{
+  font-size: 25px;
+}
+
 iframe {
   border-radius: 10px;
+}
+
+.disabled{
+  display: none;
 }
 
 /* FOOTER */

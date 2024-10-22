@@ -1,14 +1,16 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #ffe782;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&display=swap");
 
-  /* FOOTER */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #ffe782;
+}
+
+/* FOOTER */
 .divFooter {
   background-color: #242424;
   width: 100%;
@@ -34,7 +36,8 @@ body {
   min-height: 100vh; /* Full height of the viewport */
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }

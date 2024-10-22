@@ -17,14 +17,14 @@ const db = getFirestore(app);
 export const animales = [
   {
     nombre: "Manolo",
-    edad: "2 meses",
+    edad: "8 meses",
     descripcion:
       "Manolo es un perrito rescatado, súper amoroso y juguetón. Va a ser de raza mediana o grande. Es ideal para familias con niños.",
     refugio: {},
-    img: "https://media.todojujuy.com/p/f41cbfdf801e4bef5dbf8f70d9a2a3ad/adjuntos/227/imagenes/003/241/0003241461/1200x675/smart/perro-callejero-22jpg.jpg",
+    img: "https://revistacosas.mx/wp-content/uploads/2020/11/perro-limpieza.jpg",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
@@ -41,7 +41,7 @@ export const animales = [
     img: "https://humanidades.com/wp-content/uploads/2017/02/perro-1-e1561678907722.jpg",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     refugio: "",
     estado_salud: {
       vacunas: "",
@@ -59,7 +59,7 @@ export const animales = [
     img: "https://nupec.com/wp-content/uploads/2020/07/Captura-de-pantalla-2020-07-24-a-las-17.01.11.png",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
@@ -76,7 +76,7 @@ export const animales = [
     img: "https://media.traveler.es/photos/613760adcb06ad0f20e11980/master/w_1600%2Cc_limit/202931.jpg",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
@@ -93,7 +93,7 @@ export const animales = [
     img: "https://s1.elespanol.com/2022/04/19/curiosidades/mascotas/666193753_223665685_1706x960.jpg",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
@@ -103,14 +103,14 @@ export const animales = [
   },
   {
     nombre: "Lola",
-    edad: "3 meses",
+    edad: "1 año",
     descripcion:
-      "Lola es ideal para personas que buscan un perro activo para entrenar. Es leal, protector y siempre está dispuesto a complacer a su dueño. ",
+      "Es una gatita traviesa y divertida, que disfruta estar en compañía. Le encanta jugar con los niños.",
     refugio: {},
-    img: "https://alphapetx.com/wp-content/uploads/2022/03/dalmata1.jpg",
+    img: "https://es.mypet.com/wp-content/uploads/sites/23/2021/03/GettyImages-623368750-e1582816063521-1.jpg",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
@@ -127,7 +127,7 @@ export const animales = [
     img: "https://estaticos-cdn.prensaiberica.es/clip/730f1242-ae3f-486f-b882-3b4d26d53d52_16-9-discover-aspect-ratio_default_0.jpg",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
@@ -137,13 +137,13 @@ export const animales = [
   },
   {
     nombre: "Memo",
-    edad: "7 meses",
-    descripcion: "Es muy divertido y le gusta jugar con los niños.",
+    edad: "5 meses",
+    descripcion: "Memo es un gatito muy divertido, que le gusta jugar y estar en compañía de otros animales, por lo que es ideal si tienes más mascotas.",
     refugio: {},
-    img: "https://revistacosas.mx/wp-content/uploads/2020/11/perro-limpieza.jpg",
+    img: "https://fotografias.larazon.es/clipping/cmsimages01/2024/01/19/4ED02194-BB5A-4698-97DD-551467CAC980/descubre-5-cosas-que-haran-feliz-gato_98.jpg?crop=1600,900,x0,y0&width=1900&height=1069&optimize=low&format=webply",
     raza: "",
     tamanio: "",
-    requerimientos: "",
+    requerimientos: "• Ser mayor de 18 años.   • Aceptar visitas de seguimientos.   • Compromisos de cuidados veterinarios.   • Tener un espacio adecuado para la mascota. ",
     estado_salud: {
       vacunas: "",
       castracion: "",
